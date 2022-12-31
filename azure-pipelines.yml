@@ -21,3 +21,8 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    itemPattern: '**/*.war'
+    targetPath: '$(Pipeline.Workspace)'
