@@ -10,7 +10,14 @@ pool:
   name: own-agent-pool
 
 steps:
-- task: Bash@3
+- task: Maven@4
   inputs:
-    targetType: 'inline'
-    script: mvn clean install -Dmaven.test.skip=true
+    mavenPomFile: 'pom.xml'
+    goals: 'package -Dmaven.test.skip=true'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
