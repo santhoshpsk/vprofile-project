@@ -13,4 +13,4 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: mvn clean install
+    script: mvn clean install -Dmaven.test.skip=true
