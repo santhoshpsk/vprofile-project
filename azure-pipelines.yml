@@ -21,7 +21,12 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'target'
+    Contents: '*.war'
+    TargetFolder: './'
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'tree'
+    script: 'ls -l'
