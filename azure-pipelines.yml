@@ -13,4 +13,4 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: mvn
+    script: mvn clean install
