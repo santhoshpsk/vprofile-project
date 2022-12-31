@@ -30,3 +30,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'ls -l'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'vprofile-v2.war'
+    publishLocation: 'pipeline'
