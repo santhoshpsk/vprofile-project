@@ -6,28 +6,10 @@
 trigger:
 - master
 
-pool:
-  name: own-agent-pool
-
-steps:
-- task: Maven@4
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'package -Dmaven.test.skip=true'
-    publishJUnitResults: false
-    javaHomeOption: 'Path'
-    jdkDirectory: '/usr/lib/jvm/java-8-openjdk-amd64'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: 'target'
-    Contents: '**/*.war'
-    TargetFolder: './'
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'vprofile-v2.war'
-    publishLocation: 'pipeline'
+jobs:
+- job: myJob
+  timeoutInMinutes: 10
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - bash: echo "Hello world"
