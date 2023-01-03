@@ -10,6 +10,6 @@ jobs:
 - job: myJob
   timeoutInMinutes: 10
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: own-agent-pool
   steps:
   - bash: echo "Hello world"
