@@ -9,6 +9,6 @@ trigger:
 jobs:
 - job: myJob
   pool:
-    vmImage: own-agent-pool
+    name: own-agent-pool
   steps:
   - bash: echo "Hello world"
