@@ -11,9 +11,9 @@ jobs:
   pool:
     name: own-agent-pool
   steps:
-  - bash: echo "Hello world"
+  - bash: touch santhoshpskfile.txt
 - job: myJob1
   pool:
     name: own-agent-pool
   steps:
-  - bash: echo "Hello world is a First"
+  - bash: ls -l
