@@ -17,3 +17,4 @@ jobs:
     name: own-agent-pool
   steps:
   - bash: ls -l
+  dependsOn: [myJob]
