@@ -12,3 +12,8 @@ jobs:
     name: own-agent-pool
   steps:
   - bash: echo "Hello world"
+- job: myJob1
+  pool:
+    name: own-agent-pool
+  steps:
+  - bash: echo "Hello world is a First"
