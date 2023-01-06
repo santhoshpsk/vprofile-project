@@ -1,12 +1,12 @@
 parameters:
 - name: mySteplist
-  type: stepList
-  default:
-    - script: echo step one
-    - script: echo step two
+  type: string
+  default: hai
+  values:
+  - bye
+  - come
 
-trigger:
-- master
+trigger: none
 
 jobs:
 - job: myJob
