@@ -1,11 +1,3 @@
-parameters:
-- name: mySteplist
-  type: string
-  default: hai
-  values:
-  - bye
-  - come
-
 trigger: none
 
 jobs:
