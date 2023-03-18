@@ -3,12 +3,12 @@ trigger: none
 jobs:
 - job: myJob
   pool:
-    name: ubuntu-22.04
+    vmImage: ubuntu-latest
   steps:
   - bash: touch santhoshpskfile.txt && pwd
 - job: myJob1
   pool:
-    name: ubuntu-22.04
+    vmImage: ubuntu-latest
   steps:
   - bash: ls -l && pwd
   dependsOn: [myJob]
