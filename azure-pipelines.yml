@@ -3,12 +3,12 @@ trigger: none
 jobs:
 - job: myJob
   pool:
-    name: own-agent-pool
+    name: ubuntu-22.04
   steps:
   - bash: touch santhoshpskfile.txt && pwd
 - job: myJob1
   pool:
-    name: own-agent-pool
+    name: ubuntu-22.04
   steps:
   - bash: ls -l && pwd
   dependsOn: [myJob]
