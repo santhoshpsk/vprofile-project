@@ -4,4 +4,4 @@ pool:
     vmImage: ubuntu-latest
 
 steps:
-- bash: touch santhoshpskfile.txt && pwd
+- bash: aws
