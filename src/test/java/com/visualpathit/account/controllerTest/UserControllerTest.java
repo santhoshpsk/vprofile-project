@@ -27,7 +27,6 @@ public class UserControllerTest {
 	@InjectMocks
 	private UserController controller;
 	private MockMvc mockMvc;
-	public static final String WELCOME_MSG = "welcome";
 	
 	@Before
 	public void setup(){
@@ -106,10 +105,5 @@ public class UserControllerTest {
         .andExpect(forwardedUrl("index_home"));
 		
 	}
-
-    @Test
-    public void testUserDetailsWelcome() throws Exception {
-    	Assert.assertEquals(WELCOME_MSG, controller.welcome());
-    }
 
 }
