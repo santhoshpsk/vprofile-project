@@ -14,12 +14,10 @@ stages:
       displayName: Maven package
       inputs:
         mavenPOMFile: pom.xml
-        goals: package
+        goals: package verify
         #options: -DskipTests
     - task: PublishBuildArtifacts@1
       displayName: Uploading war file
       inputs:
         PathtoPublish: 'target/vprofile-v2.war'
         ArtifactName: 'vprofile'
-    - script: mvn --version
-      displayName: Maven Version
