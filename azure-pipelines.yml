@@ -15,7 +15,7 @@ stages:
       inputs:
         mavenPOMFile: pom.xml
         goals: package
-        options: -DskipTests
+        #options: -DskipTests
     - task: PublishBuildArtifacts@1
       displayName: Uploading war file
       inputs:
