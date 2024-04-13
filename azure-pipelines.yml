@@ -4,17 +4,20 @@ pool:
   name: own-agent-pool
 
 steps:
+
 - task: Maven@4
   displayName: Unit Test
   inputs:
     mavenPOMFile: pom.xml
     goals: test
+
 - task: Maven@4
   displayName: Code Coverage
   inputs:
     mavenPOMFile: pom.xml
     goals: verify
     options: -DskipUnitTests
+
 - task: PublishCodeCoverageResults@1
   displayName: Upload Code Coverage Result
   inputs:
@@ -22,12 +25,14 @@ steps:
     summaryFileLocation: 'target/site/jacoco/jacoco.xml'
     reportDirectory: 'target/site/jacoco/'
     failIfCoverageEmpty: true
+
 - task: Maven@4
   displayName: Building the App
   inputs:
     mavenPOMFile: pom.xml
     goals: package
     options: -DskipTests
+
 - task: PublishBuildArtifacts@1
   displayName: Uploading war file
   inputs:

@@ -23,3 +23,8 @@ Then look for the file :
 - > mysql -u <user_name> -p accounts < accountsdb.sql
 
 
+# Azure Devops Setup
+#
+Azure devops pipeline is used to build this project.
+
+![AzDo pipeline file screenshot](azdo-pipeline-explain.png)
