@@ -21,3 +21,5 @@ stages:
       inputs:
         PathtoPublish: 'target/vprofile-v2.war'
         ArtifactName: 'vprofile'
+    - script: mvn --version
+      displayName: Maven Version
