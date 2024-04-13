@@ -17,7 +17,7 @@ stages:
         goals: package
         options: -DskipTests
     - task: PublishBuildArtifacts@1
-      displayNme: Uploading war file
+      displayName: Uploading war file
       inputs:
         PathtoPublish: 'target/vprofile-v2.war'
         ArtifactName: 'vprofile.war'
