@@ -21,3 +21,7 @@ stages:
       inputs:
         PathtoPublish: 'target/vprofile-v2.war'
         ArtifactName: 'vprofile'
+    - task: PublishCodeCoverageResults@1
+      inputs:
+        codeCoverageTool: 'JaCoCo'
+        reportDirectory: 'target/site/jacoco/'
