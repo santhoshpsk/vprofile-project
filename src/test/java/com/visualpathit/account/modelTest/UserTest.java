@@ -20,7 +20,6 @@ public class UserTest {
     public static final String EXPECTED_USERNAME = "Wahidkhan74";
     public static final String EXPECTED_PASSWD = "Wahidkhan74";
     public static final String EXPECTED_USEREMAIL = "XXXXX@gmail.com";
-    public static final String WELCOME_MSG = "welcome";
     private User user;
     @Before
     public void setUp() throws Exception {

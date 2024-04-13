@@ -27,6 +27,7 @@ public class UserControllerTest {
 	@InjectMocks
 	private UserController controller;
 	private MockMvc mockMvc;
+	public static final String WELCOME_MSG = "welcome";
 	
 	@Before
 	public void setup(){
