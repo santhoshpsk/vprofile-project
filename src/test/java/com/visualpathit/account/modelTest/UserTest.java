@@ -54,9 +54,4 @@ public class UserTest {
         Assert.assertEquals(EXPECTED_SIZE,user.getRoles().size());
 
     }
-
-    @Test
-    public void testUserDetailsWelcome() throws Exception {
-    	Assert.assertEquals(WELCOME_MSG, user.welcome());
-    }
 }

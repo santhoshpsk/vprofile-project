@@ -106,4 +106,9 @@ public class UserControllerTest {
 		
 	}
 
+    @Test
+    public void testUserDetailsWelcome() throws Exception {
+    	Assert.assertEquals(WELCOME_MSG, controller.welcome());
+    }
+
 }
