@@ -11,7 +11,7 @@ stages:
     displayName: Unit Test
     steps:
     - task: Maven@4
-      displayName: Maven package
+      displayName: Unit Test
       inputs:
         mavenPOMFile: pom.xml
         goals: test
@@ -22,7 +22,7 @@ stages:
     displayName: Code Coverage
     steps:
     - task: Maven@4
-      displayName: Maven package
+      displayName: Code Coverage
       inputs:
         mavenPOMFile: pom.xml
         goals: verify
@@ -38,7 +38,7 @@ stages:
     displayName: Building the App
     steps:
     - task: Maven@4
-      displayName: Maven package
+      displayName: Building the App
       inputs:
         mavenPOMFile: pom.xml
         goals: package
