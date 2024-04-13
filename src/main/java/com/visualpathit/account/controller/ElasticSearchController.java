@@ -120,6 +120,7 @@ public class ElasticSearchController {
         model.addAttribute("res", deleteResponse.getResult().toString());
         return "elasticeSearchRes";
     }
+    
     /*public void contextMapping() throws IOException{    	   	
 		String json ="{"
 				+ "\"mappings\":{"
