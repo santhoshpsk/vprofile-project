@@ -56,7 +56,7 @@ public class UserTest {
     }
 
     @Test
-    public void testUserDetailsHappyFlow() throws Exception {
+    public void testUserDetailsWelcome() throws Exception {
     	Assert.assertEquals(WELCOME_MSG, user.welcome());
     }
 }
