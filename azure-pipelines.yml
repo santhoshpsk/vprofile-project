@@ -4,6 +4,33 @@ pool:
     vmImage: ubuntu-latest
 
 stages:
+- stage: UnitTest
+  displayName: Unit Test
+  jobs:
+  - job: UnitTest
+    displayName: Unit Test
+    steps:
+    - task: Maven@4
+      displayName: Maven package
+      inputs:
+        mavenPOMFile: pom.xml
+        goals: test
+- stage: CoCo
+  displayName: Code Coverage
+  jobs:
+  - job: CoCo
+    displayName: Code Coverage
+    steps:
+    - task: Maven@4
+      displayName: Maven package
+      inputs:
+        mavenPOMFile: pom.xml
+        goals: verify
+        options: -DskipUnitTests
+    - task: PublishCodeCoverageResults@2
+      inputs:
+        codeCoverageTool: 'JaCoCo'
+        summaryFileLocation: 'target/site/jacoco/jacoco.xml'
 - stage: Build
   displayName: Build the App
   jobs:
@@ -14,15 +41,16 @@ stages:
       displayName: Maven package
       inputs:
         mavenPOMFile: pom.xml
-        goals: package verify
-        #options: -DskipTests
+        goals: package
+        options: -DskipTests
+- stage: PublishArtifacts
+  displayName: Publish Artifacts
+  jobs:
+  - job: PublishArtifacts
+    displayName: Publish Artifacts
+    steps:
     - task: PublishBuildArtifacts@1
       displayName: Uploading war file
       inputs:
         PathtoPublish: 'target/vprofile-v2.war'
         ArtifactName: 'vprofile'
-    - task: PublishCodeCoverageResults@2
-      inputs:
-        codeCoverageTool: 'JaCoCo'
-        summaryFileLocation: 'target/site/jacoco/jacoco.xml'
-        #reportDirectory: 'target/site/jacoco/'
