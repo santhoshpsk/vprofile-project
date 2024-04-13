@@ -20,4 +20,4 @@ stages:
       displayName: Uploading war file
       inputs:
         PathtoPublish: 'target/vprofile-v2.war'
-        ArtifactName: 'vprofile.war'
+        ArtifactName: 'vprofile'
