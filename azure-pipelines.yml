@@ -3,54 +3,31 @@ trigger: none
 pool:
     vmImage: ubuntu-latest
 
-stages:
-- stage: UnitTest
+steps:
+- task: Maven@4
   displayName: Unit Test
-  jobs:
-  - job: UnitTest
-    displayName: Unit Test
-    steps:
-    - task: Maven@4
-      displayName: Unit Test
-      inputs:
-        mavenPOMFile: pom.xml
-        goals: test
-- stage: CoCo
+  inputs:
+    mavenPOMFile: pom.xml
+    goals: test
+- task: Maven@4
   displayName: Code Coverage
-  jobs:
-  - job: CoCo
-    displayName: Code Coverage
-    steps:
-    - task: Maven@4
-      displayName: Code Coverage
-      inputs:
-        mavenPOMFile: pom.xml
-        goals: verify
-        options: -DskipUnitTests
-    - task: PublishCodeCoverageResults@2
-      inputs:
-        codeCoverageTool: 'JaCoCo'
-        summaryFileLocation: 'target/site/jacoco/jacoco.xml'
-- stage: Build
-  displayName: Build the App
-  jobs:
-  - job: BuildJob
-    displayName: Building the App
-    steps:
-    - task: Maven@4
-      displayName: Building the App
-      inputs:
-        mavenPOMFile: pom.xml
-        goals: package
-        options: -DskipTests
-- stage: PublishArtifacts
-  displayName: Publish Artifacts
-  jobs:
-  - job: PublishArtifacts
-    displayName: Publish Artifacts
-    steps:
-    - task: PublishBuildArtifacts@1
-      displayName: Uploading war file
-      inputs:
-        PathtoPublish: 'target/vprofile-v2.war'
-        ArtifactName: 'vprofile'
+  inputs:
+    mavenPOMFile: pom.xml
+    goals: verify
+    options: -DskipUnitTests
+- task: PublishCodeCoverageResults@2
+  displayName: Upload Code Coverage Result
+  inputs:
+    codeCoverageTool: 'JaCoCo'
+    summaryFileLocation: 'target/site/jacoco/jacoco.xml'
+- task: Maven@4
+  displayName: Building the App
+  inputs:
+    mavenPOMFile: pom.xml
+    goals: package
+    options: -DskipTests
+- task: PublishBuildArtifacts@1
+  displayName: Uploading war file
+  inputs:
+    PathtoPublish: 'target/vprofile-v2.war'
+    ArtifactName: 'vprofile'
