@@ -15,11 +15,13 @@ steps:
     mavenPOMFile: pom.xml
     goals: verify
     options: -DskipUnitTests
-- task: PublishCodeCoverageResults@2
+- task: PublishCodeCoverageResults@1
   displayName: Upload Code Coverage Result
   inputs:
     codeCoverageTool: 'JaCoCo'
     summaryFileLocation: 'target/site/jacoco/jacoco.xml'
+    reportDirectory: 'target/site/jacoco/'
+    failIfCoverageEmpty: true
 - task: Maven@4
   displayName: Building the App
   inputs:
