@@ -3,5 +3,21 @@ trigger: none
 pool:
     vmImage: ubuntu-latest
 
-steps:
-- bash: aws
+stages:
+- stage: Build
+  displayName: Build the App
+  jobs:
+  - job: BuildJob
+    displayName: Building the App
+    steps:
+    - task: Maven@4
+      displayName: Maven package
+      inputs:
+        mavenPOMFile: pom.xml
+        goals: package
+        options: -DskipTests
+    - task: PublishBuildArtifacts@1
+      displayNme: Uploading war file
+      inputs:
+        PathtoPublish: 'target/vprofile-v2.war'
+        ArtifactName: 'vprofile.war'
