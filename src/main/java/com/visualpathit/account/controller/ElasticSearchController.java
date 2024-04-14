@@ -2,7 +2,6 @@ package com.visualpathit.account.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
