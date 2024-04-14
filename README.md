@@ -1,17 +1,11 @@
-# Prerequisites
-- JDK 11 or later
-- Maven 3 or later
-- MySQL 5.6 or later
-
-# Technologies 
-- Spring MVC
-- Spring Security
-- Spring Data JPA
-- Maven
-- JSP
-- MySQL
-
-# Azure Devops Setup
+# Azure Devops Setup for Continuous Integration (CI)
 Azure devops pipeline is used to build this project.
 
-![AzDo pipeline file screenshot](azdo-pipeline-explain.png)
+![AzDo pipeline file screenshot](doc-images/azdo-pipeline-explain.png)
+
+Sample CI execution in AzDo:
+![Sample AzDo CI Pipeline execution](doc-images/sample-ci-execution-in-azdo.png)
+
+![Test Result](doc-images/test-result.png)
+
+![Code Coverage Result](doc-images/code-coverage.png)
