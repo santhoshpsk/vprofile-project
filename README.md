@@ -13,6 +13,7 @@ Sample CI execution in AzDo:
 
 ![Code Coverage Result](doc-images/code-coverage.png)
 
+![Artifacts](doc-images/artifacts.png)
 
 #
 Application source code forked from: https://github.com/devopshydclub/vprofile-repo
